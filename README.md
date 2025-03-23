@@ -1,4 +1,4 @@
-Sure! Here’s an enhanced and more detailed README that you can use for your GitHub project for SierraMadre Online:
+
 
 ---
 
@@ -58,4 +58,6 @@ For updates, discussions, or any inquiries related to the project, feel free to 
 
 Creative Commons Attribution-NonCommercial-NoDerivatives
 Please do not use it for harm or inappropriate use. 
+
+---
 
