@@ -1,14 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 namespace MadreServer.Config
 {
     public class ServerConfig
     {
         public string Host { get; set; } = "localhost";
-
-        // Hardcoded port
-        public int Port => 7777;
-
+        public int Port => 7777; // Hardcoded port
         public int MaxPlayers { get; set; } = 64;
         public string Motd { get; set; } = "Welcome to The Madre Online!";
+        public List<string> Admins { get; set; } = new();
 
         public static ServerConfig LoadFromFile(string path)
         {
@@ -32,10 +35,22 @@ namespace MadreServer.Config
 
                 switch (key)
                 {
-                    case "host": config.Host = value; break;
-                    case "maxplayers": config.MaxPlayers = int.TryParse(value, out var max) ? max : config.MaxPlayers; break;
-                    case "motd": config.Motd = value; break;
-                    // Port is ignored on purpose make sure it does not change
+                    case "host":
+                        config.Host = value;
+                        break;
+                    case "maxplayers":
+                        config.MaxPlayers = int.TryParse(value, out var max) ? max : config.MaxPlayers;
+                        break;
+                    case "motd":
+                        config.Motd = value;
+                        break;
+                    case "admins":
+                        config.Admins = value.Split(',')
+                                             .Select(s => s.Trim())
+                                             .Where(s => !string.IsNullOrEmpty(s))
+                                             .ToList();
+                        break;
+                    // Port is intentionally not configurable
                 }
             }
 

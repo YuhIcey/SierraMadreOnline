@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using Fleck;
 using MadreServer.Config;
-
+using MadreServer.Hasher;
 
 namespace MadreServer
 {
@@ -18,6 +18,7 @@ namespace MadreServer
             Console.WriteLine(">> Loading The Madre...");
 
             LoadConfig();
+            InitAdminTokens();
             InitWebSocket();
             StartServerLoop();
 
@@ -37,15 +38,26 @@ namespace MadreServer
                 File.WriteAllText(configPath,
 @"# MadreServer configuration file
 host=localhost
-port=3333
+port=7777
 maxPlayers=64
-motd=Welcome to The Madre Online!");
+motd=Welcome to The Madre Online!
+admins=Admin1,Admin2");
 
                 _config = ServerConfig.LoadFromFile(configPath);
             }
             else
             {
                 _config = ServerConfig.LoadFromFile(configPath);
+            }
+        }
+
+        private static void InitAdminTokens()
+        {
+            Console.WriteLine("🔐 Initializing admin tokens...");
+            foreach (var admin in _config!.Admins)
+            {
+                var token = AdminToken.GenerateToken(admin);
+                Console.WriteLine($"🔑 Admin: {admin} → Token: {token}");
             }
         }
 
@@ -67,8 +79,7 @@ motd=Welcome to The Madre Online!");
                 socket.OnMessage = msg =>
                 {
                     Console.WriteLine($"📡 Received: {msg}");
-
-                    // Later: Deserialize & broadcast to other clients Plz do not edit. 
+                    // Deserialize & broadcast to other clients
                 };
             });
         }
@@ -79,7 +90,7 @@ motd=Welcome to The Madre Online!");
             {
                 while (true)
                 {
-                    // Future tick logic (ping checks, game rules, etc.) - Leave for now
+                    // Future tick logic (ping checks, game rules, etc.)
                     Thread.Sleep(100);
                 }
             })
