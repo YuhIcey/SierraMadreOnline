@@ -1,0 +1,14 @@
+{
+    "name": "DamageVisualizer",
+    "version": "1.0.2",
+    "author": "CourierDev",
+    "description": "Shows floating damage text over enemies when hit by players.",
+    "nexusUrl": "https://www.nexusmods.com/newvegas/mods/99999",
+    "dependencies": [],
+    "optional": false,
+    "loadPriority": 1,
+    "nvseVersion": "5.1b4",
+    "target": "server", 
+    "entryClass": "DamageVisualizer" 
+  }
+  
