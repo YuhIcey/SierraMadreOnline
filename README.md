@@ -1,63 +1,51 @@
+# SierraMadre Online
 
+**SierraMadre Online** is a standalone multiplayer framework built for *Fallout: New Vegas* and *Fallout 3*, merging the single-player depth of the classic Fallout series with real-time multiplayer gameplay. The mod integrates systems inspired by *Van Buren* and classic Black Isle design concepts to create a new cooperative and competitive experience.
 
 ---
 
-# SierraMadre Online
+## Project Overview
 
-Welcome to **SierraMadre Online**, a multiplayer mod for the Fallout series, specifically built upon the engines of **Fallout 3** and **Fallout: New Vegas**. This project integrates features from the **Van Buren Mod**, creating a unique online experience for fans of the Fallout universe.
+This project is being developed by **YuhIcey** as part of a long-term, college-based development initiative with the vision of becoming the definitive multiplayer extension of the Fallout universe.
 
-## Overview
+SierraMadre Online is built entirely from scratch using:
+- C# (.NET 8) for backend and networking
+- C++ via NVSE for direct memory control and in-engine hooks
+- A custom WebSocket stack (`ShyroNet`) for player synchronization
+- Modular plugin support and integrated Discord tooling
 
-SierraMadre Online is being developed by YuhIcey as a college project. The goal is to bring players together in a collaborative, immersive Fallout experience, allowing them to explore the wasteland, complete quests, and interact with each other in real-time. 
+---
 
-### Key Features
-- Fully multiplayer experience set in the Fallout universe.
-- Integration with essential elements from Fallout 3, Fallout: New Vegas, and the Van Buren Mod.
-- Designed from the ground up to provide a fresh, engaging gameplay experience without the reliance on existing multiplayer SDKs (e.g., NVMP, VaultMP).
-- The mod will be free after the initial version is released, promoting a community-driven approach.
+## Key Features
 
-## Development Intentions
+- **True Multiplayer**: Real-time multiplayer in Fallout: New Vegas without VaultMP or NVMP dependencies.
+- **Custom Engine Core**: Built on a custom WebSocket engine (`ShyroNet`) supporting tick-based world sync and interpolation.
+- **NVSE Integration**: In-game C++ memory hook system handles multiplayer saves and state extraction.
+- **Factions & Capture Points**: Join, promote, and manage faction members with progression tiers and zone control systems.
+- **Safe Zones & PvP**: Opt-in PvP and automatic godmode management within predefined safe zones.
+- **Admin Control Suite**: CLI, role-based permissions, real-time moderation, ban/kick/mute, and Discord webhook relays.
+- **Plugin Architecture**: Dynamically load plugins with NexusMod integration, `plugin.json` metadata, and optional dependency management.
 
-This mod is under active development and will be released in stages:
-1. **Pre-Alpha**: Initial release with basic server functionality and core multiplayer features.
-2. **Alpha**: Further enhancements to gameplay mechanics, stability improvements, and additional content.
-3. **Beta**: Wider testing and community feedback phase.
-4. **Final Release**: A polished version, ready for general play.
+---
 
-### Future Releases
-The server code will be released upon completion of the first version, allowing other developers and modders to build upon the foundation we create. The full SDK for the project will be available at a later date, enabling further modding possibilities within the SierraMadre Online ecosystem.
+## Project Roadmap
 
-## Contribution
+| Phase         | Status          | Description                                   |
+|---------------|------------------|-----------------------------------------------|
+| Pre-Alpha     | In Development  | Core networking, player sync, basic CLI       |
+| Alpha         | Planned (2025)  | Interpolation, factions, admin tooling        |
+| Private Tests | Q3 2025         | Closed multiplayer testing with feedback loop |
+| Public Alpha  | Q1 2026         | Initial public release, GitHub + installer    |
+| Beta          | TBD             | Mod support, PvE events, installer updates    |
+| Final         | TBD             | Fully polished and expandable release         |
 
-This project is not just for the developer but for the community. We welcome contributions, whether through code, ideas, or testing. If you’re interested in participating, please reach out or open an issue to start the conversation.
+---
 
-### Getting Started
+## Installation (Not Yet Available)
 
-To get started with SierraMadre Online it will not work as of right now 
-
+SierraMadre Online is under active development and **not currently playable**. Setup instructions, installation guides, and public builds will be added here once the Alpha version is released.
 
 ```bash
 git clone https://github.com/YuhIcey/SierraMadreOnline.git
 cd SierraMadreOnline
-# Follow further setup instructions here
-```
-
-## Contact
-
-For updates, discussions, or any inquiries related to the project, feel free to reach out to me:
-- **judgenyy on discord**
-- https://discord.gg/GrfypGHZ
-
-
-## Acknowledgments
-
-- Special thanks to the broader Fallout modding community for their inspiration and support.
-- Recognition of any people or organizations involved in the development process.
-
-## License
-
-Creative Commons Attribution-NonCommercial-NoDerivatives
-Please do not use it for harm or inappropriate use. 
-
----
-
+# Further setup instructions will be available upon release
